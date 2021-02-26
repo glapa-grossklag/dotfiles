@@ -29,6 +29,7 @@ fi
 # Out with the old, in with the new
 cp ./zsh/.zshrc ~/.zshrc
 cp ./zsh/theme.zsh-theme ~/.oh-my-zsh/custom/themes/theme.zsh-theme
+git clone https://github.com/zsh-users/zsh-history-substring-search ~/.oh-my-zsh/plugins/zsh-history-substring-search
 
 # ---
 # Vim
