@@ -1,0 +1,20 @@
+EXECUTABLE  = out
+
+SRC         = $(wildcard *.c)
+OBJ         = $(SRC:%.c=%.o)
+
+CC          = clang
+CFLAGS      = -Wall -Werror -Wextra -Wpedantic
+
+.PHONY: all clean
+
+all: $(EXECUTABLE)
+
+$(EXECUTABLE): $(OBJ)
+	$(CC) $(CFLAGS) -o $@ $^
+
+%.o: %.c
+	$(CC) $(CFLAGS) -c $<
+
+clean:
+	rm -f $(EXECUTABLE) $(OBJ)
