@@ -1,11 +1,11 @@
 # Exports
 export TERM=xterm-256color
 export EDITOR="vim"
-export ZSH="~/.oh-my-zsh"
+export ZSH="${HOME}/.oh-my-zsh"
 export TODAY=$(date -I)
 
 ZSH_THEME="theme"
-source $ZSH/oh-my-zsh.sh
+source "$ZSH/oh-my-zsh.sh"
 
 # Plugins
 plugins=(

@@ -1,17 +1,17 @@
-#!/usr/bin/env sh
+#!/usr/bin/env bash
 # ===
 # install.sh
 # ===
 
-alias cp=cp --update --interactive --recursive --verbose
-alias mv=mv --update --interactive --verbose
-alias rm=rm --interactive --recursive --verbose
+alias cp="cp --interactive --recursive --verbose"
+alias rm="rm --interactive --recursive --verbose"
+alias mv="mv --interactive --verbose"
+alias ln="ln --interactive --verbose"
+DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" >/dev/null 2>&1 && pwd )"
 
 # ---
 # Zsh
 # ---
-
-echo "Setting up Zsh..."
 
 # Zsh
 if test ! $(which zsh); then
@@ -22,40 +22,36 @@ fi
 
 # Oh-My-Zsh
 if ! test -d "$HOME/.oh-my-zsh"; then
-    echo "Installing Oh-My-Zsh..."
     sh -c "$(curl -fsSL https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh)"
 fi
 
 # Out with the old, in with the new
-cp ./zsh/.zshrc ~/.zshrc
-cp ./zsh/theme.zsh-theme ~/.oh-my-zsh/custom/themes/theme.zsh-theme
-git clone https://github.com/zsh-users/zsh-history-substring-search ~/.oh-my-zsh/plugins/zsh-history-substring-search
+ln -s "${DIR}/zsh/.zshrc" "${HOME}/.zshrc"
+ln -s "${DIR}/zsh/theme.zsh-theme" "${HOME}/.oh-my-zsh/custom/themes/theme.zsh-theme"
+
+# Plugins
+git clone https://github.com/zsh-users/zsh-history-substring-search "${HOME}/.oh-my-zsh/plugins/zsh-history-substring-search"
 
 # ---
 # Vim
 # ---
 
-echo "Setting up Vim..."
-
 # Out with the old, in with the new
-mkdir -p ~/.vim/
-mkdir ~/.vim/undodir
-if test -e ~/.vimrc; then
-    # Use ~/vim to store vim files
-    mv ~/.vimrc ~/.vim/vimrc
+if test -d "$HOME/.vim"; then
+    rm "$HOME/.vim"
 fi
-cp ./vim ~/.vim
+ln -s "${DIR}/vim" "${HOME}/.vim"
 
 # Plugins
-echo "Installing plugins..."
 vim -c 'PlugInstall' -c 'qa!'
 
 # ---
 # i3
 # ---
 
-echo "Setting up i3..."
-
 # Out with the old, in with the new
-mkdir -p ~/.config/i3/
-cp -T ./i3 ~/.config/i3/
+mkdir -p "${HOME}/.config/"
+if test -d "${HOME}/.config/i3"; then
+    rm "${HOME}/.config/i3"
+fi
+ln -s "${DIR}/i3" "${HOME}/.config/i3"
