@@ -6,6 +6,7 @@ A collection of my dotfiles for
 * Vim
 * i3-gaps
 * GNU Make
+* X11
 
 ## Installation
 

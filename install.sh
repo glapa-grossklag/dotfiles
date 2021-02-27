@@ -21,11 +21,10 @@ if test ! $(which zsh); then
 fi
 
 # Oh-My-Zsh
-if ! test -d "$HOME/.oh-my-zsh"; then
+if ! test -d "${HOME}/.oh-my-zsh"; then
     sh -c "$(curl -fsSL https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh)"
 fi
 
-# Out with the old, in with the new
 ln -s "${DIR}/zsh/.zshrc" "${HOME}/.zshrc"
 ln -s "${DIR}/zsh/theme.zsh-theme" "${HOME}/.oh-my-zsh/custom/themes/theme.zsh-theme"
 
@@ -36,9 +35,9 @@ git clone https://github.com/zsh-users/zsh-history-substring-search "${HOME}/.oh
 # Vim
 # ---
 
-# Out with the old, in with the new
-if test -d "$HOME/.vim"; then
-    rm "$HOME/.vim"
+# Vim
+if test -d "${HOME}/.vim"; then
+    rm "${HOME}/.vim"
 fi
 ln -s "${DIR}/vim" "${HOME}/.vim"
 
@@ -49,9 +48,15 @@ vim -c 'PlugInstall' -c 'qa!'
 # i3
 # ---
 
-# Out with the old, in with the new
 mkdir -p "${HOME}/.config/"
 if test -d "${HOME}/.config/i3"; then
     rm "${HOME}/.config/i3"
 fi
 ln -s "${DIR}/i3" "${HOME}/.config/i3"
+
+# ---
+# X11
+# ---
+
+ln -s "${DIR}/X11/.Xresources" "${HOME}/.Xresources"
+xrdb "${HOME}/.Xresources"
