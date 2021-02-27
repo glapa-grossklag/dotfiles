@@ -1,0 +1,5 @@
+# Ignore Vim folders and files
+/vim/autoload/
+/vim/plugged/
+/vim/undodir/
+/vim/viminfo
