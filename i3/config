@@ -66,9 +66,11 @@ bindsym $mod+shift+l move window right
 floating_modifier $mod
 
 # Open terminal
-bindsym $mod+Return exec xterm -b 20 -fa "SFMono" -fs 12
+# bindsym $mod+Return exec xterm -b 20 -fa "SFMono" -fs 12
+# bindsym Mod1+Return exec xterm -b 20 -fa "SFMono" -fs 12 -T "floating"
+bindsym $mod+Return exec xterm
+bindsym Mod1+Return exec xterm -T "floating"
 bindsym $mod+Shift+Return exec firefox
-bindsym Mod1+Return exec xterm -b 20 -fa "SFMono" -fs 12 -T "floating"
 bindsym $mod+d exec dmenu_run -nb '#2E3440' -nf '#c5c8c6' -sb '#565656' -sf '#c5c8c6'
 bindsym $mod+p exec pavucontrol
 bindsym $mod+q kill

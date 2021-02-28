@@ -1,4 +1,9 @@
+! XTerm
 xterm*BorderWidth: 0
+xterm*internalBorder: 20
+xterm*font: SFMono:style=Regular:size=12
+xterm*faceName: SFMono
+xterm*faceSize: 12
 
 ! -----------------------------------------------------------------------------
 ! File: gruvbox-dark.xresources
