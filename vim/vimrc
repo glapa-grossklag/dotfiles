@@ -58,6 +58,7 @@ set cursorline                      " Highlight current line
 set laststatus=2
 set noshowmode                      " Disable normal statusbar
 set scrolloff=5                     " Keep cursor five lines away from edge
+set autoread
 
 " ---
 " Plugins
