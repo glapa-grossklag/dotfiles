@@ -30,6 +30,7 @@ omap ic <Plug>(coc-classobj-i)
 xmap ac <Plug>(coc-classobj-a)
 omap ac <Plug>(coc-classobj-a)
 
+" Jump to next/previous diagnostic
 nmap <silent> [[ <Plug>(coc-diagnostic-prev)
 nmap <silent> ]] <Plug>(coc-diagnostic-next)
 
@@ -57,5 +58,10 @@ set signcolumn=yes
 autocmd CursorHold * silent call CocActionAsync('highlight')
 
 " Rename current word
-nmap <leader>n <Plug>(coc-rename)
+nmap <leader>cn <Plug>(coc-rename)
 
+" Fix
+nmap <silent> <leader>f :CocFix<CR>
+
+" Format
+map <silent> <leader>F :call CocAction('format')<CR>
