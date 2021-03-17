@@ -9,15 +9,18 @@ noremap <leader>r :execute "!pandoc --highlight-style=tango -o " . expand("%:p:r
 " View PDF using mupdf
 map <leader>R :silent execute "!mupdf " . expand("%:p:r") . ".pdf &" <CR>
 
+" Make link
+command -range Link '<,'>s/\%V.*/[&]()
+
+" Checkboxes
+command -range Check '<,'>s/\([*-+]\)\ \[\ \]/\1\ \[X\]/g
+command -range Uncheck '<,'>s/\([*-+]\)\ \[[xX]\]/\1\ \[\ \]/g
+
 " Use HTML comments
 setlocal commentstring=<!--\ %s\ -->
 
 " Disable folding
 setlocal foldmethod=manual
-
-" Checkboxes
-command Check s/\([*-+]\)\ \[\ \]/\1\ \[X\]/g
-command Uncheck s/\([*-+]\)\ \[[xX]\]/\1\ \[\ \]/g
 
 " Concealing
 set conceallevel=2
