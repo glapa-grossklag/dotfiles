@@ -1,12 +1,11 @@
-EXECUTABLE  = out
+SRC    = $(wildcard *.c)
+OBJ    = $(SRC:%.c=%.o)
+BIN    = a.out
 
-SRC         = $(wildcard *.c)
-OBJ         = $(SRC:%.c=%.o)
+CC     = clang
+CFLAGS = -Wall -Werror -Wextra -Wpedantic
 
-CC          = clang
-CFLAGS      = -Wall -Werror -Wextra -Wpedantic
-
-.PHONY: all clean
+.PHONY: all clean debug format
 
 all: $(EXECUTABLE)
 
@@ -18,3 +17,9 @@ $(EXECUTABLE): $(OBJ)
 
 clean:
 	rm -f $(EXECUTABLE) $(OBJ)
+
+debug: CFLAGS += -g
+debug: clean all
+
+format:
+	find . -name "*.[ch]" | xargs clang-format -i -style=file
