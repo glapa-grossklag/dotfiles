@@ -3,6 +3,8 @@
 " ---
 
 map <silent> <leader>e :FZF --prompt=:edit\  --info=hidden<CR>
+map <silent> <leader>E :Tags<CR>
+let g:fzf_preview_window = []
 
 " Colors
 let g:fzf_colors =
