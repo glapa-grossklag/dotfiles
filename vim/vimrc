@@ -3,13 +3,53 @@
 " ===
 
 " ---
+" Plugins
+" ---
+
+" Install vim-plug if not already installed
+if empty(glob('~/.vim/autoload/plug.vim'))
+    silent !curl -fLo ~/.vim/autoload/plug.vim --create-dirs
+        \ https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
+    autocmd VimEnter * PlugInstall --sync | source $MYVIMRC
+endif
+
+call plug#begin("~/.vim/plugged")
+
+" Config: ./plugin/lightline.vim
+Plug 'itchyny/lightline.vim'
+Plug 'josa42/vim-lightline-coc'
+Plug 'shinchu/lightline-gruvbox.vim'
+
+" Config: ./plugin/fzf.vim
+Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
+Plug 'junegunn/fzf.vim'
+
+" Config: ./plugin/goyo.vim
+Plug 'junegunn/goyo.vim'
+
+" Config: ./plugin/coc.vim
+Plug 'neoclide/coc.nvim', {'branch': 'release'}
+
+" Config: N/A
+Plug 'plasticboy/vim-markdown'
+
+" Config: N/A
+Plug 'tpope/vim-commentary'
+call plug#end()
+
+" ---
 " General
 " ---
 
 set hidden              " Don't unload buffers
 set nocompatible        " Disable vi compatibility
 set encoding=utf-8      " Use UTF-8 encoding
-filetype plugin on      " Load language-specific files
+
+" Recognize .md as markdown
+autocmd BufNewFile,BufRead *.md set filetype=markdown
+
+" Load ftplugin dir
+filetype plugin on
 
 " Use undodir
 set undofile
@@ -29,8 +69,6 @@ set expandtab
 set smartindent
 set nowrap
 
-" Recognize .md as markdown
-autocmd BufNewFile,BufRead *.md set filetype=markdown
 
 " Searching
 set incsearch
@@ -63,28 +101,6 @@ let g:gruvbox_improved_warnings=1
 let g:gruvbox_guisp_fallback='fg'
 colorscheme gruvbox
 
-" ---
-" Plugins
-" ---
-
-" Install vim-plug if not already
-if empty(glob('~/.vim/autoload/plug.vim'))
-    silent !curl -fLo ~/.vim/autoload/plug.vim --create-dirs
-        \ https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
-    autocmd VimEnter * PlugInstall --sync | source $MYVIMRC
-endif
-
-call plug#begin("~/.vim/plugged")
-Plug 'itchyny/lightline.vim'
-Plug 'josa42/vim-lightline-coc'
-Plug 'junegunn/goyo.vim'
-Plug 'tpope/vim-commentary'
-Plug 'neoclide/coc.nvim', {'branch': 'release'}
-Plug 'junegunn/fzf.vim'
-Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
-Plug 'plasticboy/vim-markdown'
-Plug 'shinchu/lightline-gruvbox.vim'
-call plug#end()
 
 " ---
 " Mappings
