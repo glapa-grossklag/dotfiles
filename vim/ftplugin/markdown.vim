@@ -16,6 +16,9 @@ command -range Link '<,'>s/\%V.*/[&]()
 command -range Check '<,'>s/\([*-+]\)\ \[\ \]/\1\ \[X\]/g
 command -range Uncheck '<,'>s/\([*-+]\)\ \[[xX]\]/\1\ \[\ \]/g
 
+" Todo
+command Todo grep -E "[*-+] \[ \]" -r *.md
+
 " Use HTML comments
 setlocal commentstring=<!--\ %s\ -->
 
