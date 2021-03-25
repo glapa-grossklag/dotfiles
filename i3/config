@@ -13,6 +13,11 @@ set $mod Mod4
 # Visuals
 # ---
 
+# Gaps
+for_window [class="^.*"] border pixel 3
+gaps inner 5
+gaps outer 0
+
 font pango:SFNS Display 12
 
 set $bg-color 	         #3f3f3f
@@ -148,15 +153,8 @@ mode "resize" {
 }
 bindsym $mod+r mode "resize"
 
-# i3-gaps
-for_window [class="^.*"] border pixel 3
-gaps inner 5
-gaps outer 0
-# smart_gaps on
-# smart_borders on
-
 # Window Assignments
-for_window [class="Spotify"] move to workspace $ws6
+for_window [class="Spotify"] move to workspace $ws5
 for_window [title="Discord"] move to workspace $ws6
 
 # Startup
