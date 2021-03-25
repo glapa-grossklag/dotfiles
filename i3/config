@@ -18,6 +18,12 @@ for_window [class="^.*"] border pixel 3
 gaps inner 5
 gaps outer 0
 
+# Rounded windows
+# https://github.com/resloved/i3
+smart_borders on
+smart_borders no_gaps
+border_radius 5
+
 font pango:SFNS Display 12
 
 set $bg-color 	         #3f3f3f

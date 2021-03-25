@@ -4,7 +4,7 @@ A collection of my dotfiles for
 
 * Zsh / Oh-My-Zsh
 * Vim
-* i3-gaps
+* i3-radius
 * GNU Make
 * X11
 
@@ -16,5 +16,5 @@ chmod +x ./install.sh
 ./install.sh
 ```
 
-**Note:** `install.sh` does not install Zsh nor i3-gaps, please use your package
+**Note:** `install.sh` does not install Zsh nor i3-radius, please use your package
 manager of choice to do so.
