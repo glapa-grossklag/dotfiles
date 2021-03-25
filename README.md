@@ -8,6 +8,10 @@ A collection of my dotfiles for
 * GNU Make
 * X11
 
+## Screenshots
+
+![Vim](./vim.png)
+
 ## Installation
 
 ```sh
