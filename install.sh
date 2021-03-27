@@ -54,9 +54,3 @@ if test -d "${HOME}/.config/i3"; then
 fi
 ln -s "${DIR}/i3" "${HOME}/.config/i3"
 
-# ---
-# X11
-# ---
-
-ln -s "${DIR}/X11/.Xresources" "${HOME}/.Xresources"
-xrdb "${HOME}/.Xresources"

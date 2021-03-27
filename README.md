@@ -6,7 +6,6 @@ A collection of my dotfiles for
 * Vim
 * i3-radius
 * GNU Make
-* X11
 
 ## Screenshots
 
