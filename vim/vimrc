@@ -15,25 +15,23 @@ endif
 
 call plug#begin("~/.vim/plugged")
 
-" Config: ./plugin/lightline.vim
+" ./plugin/lightline.vim
 Plug 'itchyny/lightline.vim'
 Plug 'josa42/vim-lightline-coc'
 Plug 'shinchu/lightline-gruvbox.vim'
 
-" Config: ./plugin/fzf.vim
+" ./plugin/fzf.vim
 Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
 Plug 'junegunn/fzf.vim'
 
-" Config: ./plugin/goyo.vim
+" ./plugin/goyo.vim
 Plug 'junegunn/goyo.vim'
 
-" Config: ./plugin/coc.vim
+" ./plugin/coc.vim
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
 
-" Config: N/A
 Plug 'plasticboy/vim-markdown'
 
-" Config: N/A
 Plug 'tpope/vim-commentary'
 call plug#end()
 
