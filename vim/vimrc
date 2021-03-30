@@ -33,8 +33,6 @@ Plug 'neoclide/coc.nvim', {'branch': 'release'}
 Plug 'plasticboy/vim-markdown'
 
 Plug 'tpope/vim-commentary'
-
-Plug 'rhysd/git-messenger.vim'
 call plug#end()
 
 " ---
