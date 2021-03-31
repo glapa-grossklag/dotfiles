@@ -7,16 +7,16 @@ CFLAGS = -Wall -Werror -Wextra -Wpedantic
 
 .PHONY: all clean debug format
 
-all: $(EXECUTABLE)
+all: $(BIN)
 
-$(EXECUTABLE): $(OBJ)
+$(BIN): $(OBJ)
 	$(CC) $(CFLAGS) -o $@ $^
 
 %.o: %.c
 	$(CC) $(CFLAGS) -c $<
 
 clean:
-	rm -f $(EXECUTABLE) $(OBJ)
+	rm -f $(BIN) $(OBJ)
 
 debug: CFLAGS += -g
 debug: clean all
