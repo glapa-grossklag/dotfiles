@@ -6,23 +6,19 @@
 # Variables
 # ---
 
-# Use Windows/Super key as modifier
+# Use super key as modifier
 set $mod Mod4
 
 # ---
 # Visuals
 # ---
 
-# Gaps
+# Window border
 for_window [class="^.*"] border pixel 3
+
+# Gaps
 gaps inner 5
 gaps outer 0
-
-# Rounded windows
-# https://github.com/resloved/i3
-smart_borders on
-smart_borders no_gaps
-border_radius 5
 
 font pango:SFNS Display 12
 
@@ -79,10 +75,11 @@ floating_modifier $mod
 # Open terminal
 # bindsym $mod+Return exec xterm -b 20 -fa "SFMono" -fs 12
 # bindsym Mod1+Return exec xterm -b 20 -fa "SFMono" -fs 12 -T "floating"
-bindsym $mod+Return exec xterm
-bindsym Mod1+Return exec xterm -T "floating"
+bindsym $mod+Return exec st
+bindsym Mod1+Return exec st -T "floating"
 bindsym $mod+Shift+Return exec firefox
-bindsym $mod+d exec dmenu_run -nb '#2E3440' -nf '#c5c8c6' -sb '#565656' -sf '#c5c8c6'
+# bindsym $mod+d exec dmenu_run -nb '#2E3440' -nf '#c5c8c6' -sb '#565656' -sf '#c5c8c6'
+bindsym $mod+d exec dmenu_run
 bindsym $mod+p exec pavucontrol
 bindsym $mod+q kill
 
@@ -151,8 +148,8 @@ for_window [title="Volume Control"] floating enable, move absolute position cent
 # Resize
 mode "resize" {
         bindsym h resize shrink width 10 px or 10 ppt
-        bindsym j resize grow height 10 px or 10 ppt
-        bindsym k resize shrink height 10 px or 10 ppt
+        bindsym j resize shrink height 10 px or 10 ppt
+        bindsym k resize grow height 10 px or 10 ppt
         bindsym l resize grow width 10 px or 10 ppt
 
         bindsym Escape mode "default"
