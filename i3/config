@@ -9,6 +9,26 @@
 # Use super key as modifier
 set $mod Mod4
 
+# Darker colors
+set $dark-black    "#1c1c1c"
+set $dark-red      "#cc241d"
+set $dark-green    "#98971a"
+set $dark-yellow   "#d79921"
+set $dark-blue     "#458588"
+set $dark-magenta  "#b16286"
+set $dark-cyan     "#689d6a"
+set $dark-white    "#a89984"
+
+# Bright colors
+set $light-black   "#928374"
+set $light-red     "#fb4934"
+set $light-green   "#b8bb26"
+set $light-yellow  "#fabd2f"
+set $light-blue    "#83a598"
+set $light-magenta "#d3869b"
+set $light-cyan    "#8ec07c"
+set $light-white   "#ebdbb2"
+
 # ---
 # Visuals
 # ---
@@ -20,36 +40,28 @@ for_window [class="^.*"] border pixel 3
 gaps inner 5
 gaps outer 0
 
+# Font
 font pango:SFNS Display 12
 
-set $bg-color 	         #3f3f3f
-set $inactive-bg-color   #3f3f3f
-set $text-color          #dfaf8f
-set $inactive-text-color #dfaf8f
-set $urgent-bg-color     #bf616a
-set $indicator-color     #c5c8c6
-
-# window colors
-#                       border             background         text                 indicator
-client.focused          $text-color        $text-color        $bg-color            $indicator-color
-client.unfocused        $bg-color          $bg-color          $inactive-text-color $indicator-color
-client.focused_inactive $inactive-bg-color $inactive-bg-color $inactive-text-color $indicator-color
-client.urgent           $urgent-bg-color   $urgent-bg-color   $text-color          $indicator-color
+# Window                Background         Border             Text
+client.focused          $dark-black        $light-black       $light-white        
+client.focused_inactive $dark-black        $light-black       $light-white        
+client.unfocused        $dark-black        $dark-black        $light-black        
+client.urgent           $dark-black        $light-red         $light-red         
 
 # bar
 bar {
     font pango:System San Francisco Display 10
-    # position top
   	status_command i3status
     # tray_output none
-    separator_symbol "⁞"
 	colors {
-		background $bg-color
-        separator #D8DEE9
-		#                  border             background         text
-		focused_workspace  $bg-color          $text-color          $bg-color
-		inactive_workspace $bg-color          $bg-color          $text-color
-		urgent_workspace   $urgent-bg-color   $urgent-bg-color   $text-color
+        statusline $light-white
+		background $dark-black
+        separator "#D8DEE9"
+		# Workspace        Border             Background         Text
+		focused_workspace  $dark-black        $dark-black        $light-white
+		inactive_workspace $dark-black        $dark-black        $light-black
+		urgent_workspace   $dark-black        $dark-black        $light-red
 	}
 }
 
@@ -73,12 +85,9 @@ bindsym $mod+shift+l move window right
 floating_modifier $mod
 
 # Open terminal
-# bindsym $mod+Return exec xterm -b 20 -fa "SFMono" -fs 12
-# bindsym Mod1+Return exec xterm -b 20 -fa "SFMono" -fs 12 -T "floating"
 bindsym $mod+Return exec st
-bindsym Mod1+Return exec st -T "floating"
+bindsym Mod1+Return exec st -c "floating"
 bindsym $mod+Shift+Return exec firefox
-# bindsym $mod+d exec dmenu_run -nb '#2E3440' -nf '#c5c8c6' -sb '#565656' -sf '#c5c8c6'
 bindsym $mod+d exec dmenu_run
 bindsym $mod+p exec pavucontrol
 bindsym $mod+q kill
@@ -95,10 +104,10 @@ bindsym $mod+s layout stacking
 bindsym $mod+w layout tabbed
 bindsym $mod+e layout toggle split
 
-# toggle tiling / floating
+# Toggle tiling / floating
 bindsym $mod+Shift+space floating toggle
 
-# change focus between tiling / floating windows
+# Change focus between tiling / floating windows
 bindsym $mod+space focus mode_toggle
 
 # Reload configuration file
@@ -142,7 +151,7 @@ for_window [window_role="task_dialog"] floating enable
 for_window [window_role="dialog"] floating enable
 for_window [window_role="menu"] floating enable
 for_window [window_role="Preferences"] floating enable
-for_window [title="floating"] floating enable, move absolute position center
+for_window [class="floating"] floating enable, move absolute position center
 for_window [title="Volume Control"] floating enable, move absolute position center # Just for pavucontrol
 
 # Resize
@@ -164,4 +173,3 @@ for_window [title="Discord"] move to workspace $ws6
 exec compton -b -f -D 6
 exec --no-startup-id ~/.fehbg # Set wallpaper
 exec redshift
-exec xrdb -merge ~/.Xresources
