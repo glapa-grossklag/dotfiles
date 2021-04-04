@@ -9,7 +9,7 @@ A collection of my dotfiles for
 
 ## Screenshots
 
-![Vim](./vim.png)
+![Screenshot of Vim](./vim.png)
 
 ## Installation
 
