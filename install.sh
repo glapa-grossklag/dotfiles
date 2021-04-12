@@ -14,22 +14,14 @@ DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" >/dev/null 2>&1 && pwd )"
 # ---
 
 # Zsh
-if test ! $(which zsh); then
+if test $(which zsh); then
+    ln -s "${DIR}/zsh/.zshrc" "${HOME}/.zshrc"
+else
     # We don't install automatically since Zsh should be
     # installed using the user's package manager of choice
-    echo "Cannot find Zsh" 1>&2
+    echo "Zsh is not installed, skipping .zshrc." 1>&2
 fi
 
-# Oh-My-Zsh
-if ! test -d "${HOME}/.oh-my-zsh"; then
-    sh -c "$(curl -fsSL https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh)"
-fi
-
-ln -s "${DIR}/zsh/.zshrc" "${HOME}/.zshrc"
-ln -s "${DIR}/zsh/theme.zsh-theme" "${HOME}/.oh-my-zsh/custom/themes/theme.zsh-theme"
-
-# Plugins
-git clone https://github.com/zsh-users/zsh-history-substring-search "${HOME}/.oh-my-zsh/plugins/zsh-history-substring-search"
 
 # ---
 # Vim

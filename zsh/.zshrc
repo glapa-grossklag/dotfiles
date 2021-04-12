@@ -1,45 +1,56 @@
 # ===
-# Zsh
+# .zshrc
 # ===
 
-# ---
-# Exports
-# ---
+# Set left prompt to print working directory
+export PROMPT='%1~ $ '
 
-export TERM=xterm-256color
-export EDITOR="vim"
-export ZSH="${HOME}/.oh-my-zsh"
-export TODAY=$(date -I)
+# Set right prompt to print most recent exit code if non-zero
+export RPROMPT='%B%(?..%?)%b'
 
-# ---
-# Aliases + Functions
-# ---
+# Use the suckless simple terminal
+export TERM='st'
 
-# General
-alias ll="ls -lhA"
-alias v="vim"
-alias sd="shutdown"
-alias today="vim ~/notes/daily/$(date -I).md"
+# Use Vim
+export EDITOR='vim'
+
+# Save history
+export HISTFILE="${ZDOTDIR:-$HOME}/.zsh_history"
+
+# Type only <directory> instead of cd <directory>
+setopt AUTO_CD 
+
+# Share history across sessions
+setopt SHARE_HISTORY 
+
+# Add commands to history as they are typed
+setopt INC_APPEND_HISTORY
+
+# Enable nice tab completion
+autoload -Uz compinit && compinit
 
 # Search through history
-function hist() {
-    history | grep "$1" | tail -n "${2:-10}"
-}
+bindkey '^k' up-line-or-search
+bindkey '^j' down-line-or-search
 
-# mkdir + cd
-function mkcd() {
+# ---
+# Functions, Aliases
+# ---
+
+# First mkdir, then cd.
+function mkcd {
     mkdir "$1"
     cd "$1"
 }
 
-# ---
-# Oh-My-Zsh
-# ---
+# Use grep to search through history.
+function hgrep {
+    history | grep "$1" | tail -n "${2:-10}"
+}
 
-ZSH_THEME="theme"
-
-plugins=(
-    git
-)
-
-source "$ZSH/oh-my-zsh.sh"
+alias ls='ls --color=auto'
+alias ll='ls -lh'
+alias la='ls -lhA'
+alias mv='mv -v'
+alias cp='cp -v'
+alias rm='rm -v --preserve-root'
