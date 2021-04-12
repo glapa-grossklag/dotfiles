@@ -3,7 +3,7 @@ OBJ    = $(SRC:%.c=%.o)
 BIN    = a.out
 
 CC     = clang
-CFLAGS = -Wall -Werror -Wextra -Wpedantic
+CFLAGS = -Wall -Werror -Wextra -Wpedantic -O2
 
 .PHONY: all clean debug format
 
@@ -18,7 +18,7 @@ $(BIN): $(OBJ)
 clean:
 	rm -f $(BIN) $(OBJ)
 
-debug: CFLAGS += -g
+debug: CFLAGS += -O0 -g
 debug: clean all
 
 format:
