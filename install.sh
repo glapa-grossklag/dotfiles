@@ -28,13 +28,22 @@ fi
 # ---
 
 # Vim
-if test -d "${HOME}/.vim"; then
-    rm "${HOME}/.vim"
-fi
-ln -s "${DIR}/vim" "${HOME}/.vim"
+# if test -d "${HOME}/.vim"; then
+#     rm "${HOME}/.vim"
+# fi
+# ln -s "${DIR}/vim" "${HOME}/.vim"
 
 # Plugins
-vim -c 'PlugInstall' -c 'qa!'
+# vim -c 'PlugInstall' -c 'qa!'
+
+# Neovim
+if test -d "${HOME}/.config/nvim"; then
+    rm "${HOME}/.config/nvim"
+fi
+ln -s "${DIR}/nvim" "${HOME}/.config/nvim"
+
+# Plugins
+nvim -c 'PlugInstall' -c 'qa!'
 
 # ---
 # i3

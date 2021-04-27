@@ -4,3 +4,10 @@
 /vim/undodir/
 /vim/viminfo
 /vim/.netrwhist
+
+# Ignore NeoVim folders and files
+/nvim/autoload/
+/nvim/plugged/
+/nvim/undodir/
+/nvim/viminfo
+/nvim/.netrwhist
