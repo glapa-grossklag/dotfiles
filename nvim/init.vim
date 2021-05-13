@@ -33,6 +33,7 @@ Plug 'plasticboy/vim-markdown'
 
 Plug 'tpope/vim-commentary'
 Plug 'psliwka/vim-smoothie'
+Plug 'morhetz/gruvbox'
 call plug#end()
 
 " ---
@@ -90,14 +91,15 @@ set scrolloff=5                     " Keep cursor five lines away from edge
 set autoread
 
 " Colorscheme
-let g:gruvbox_contrast_dark="hard"
+" let g:gruvbox_contrast_dark="hard"
 let g:gruvbox_sign_column="bg0"
 let g:gruvbox_transparent_bg=1
 let g:gruvbox_invert_selection=0
 let g:gruvbox_improved_warnings=1
 let g:gruvbox_guisp_fallback='fg'
 colorscheme gruvbox
-
+highlight Normal ctermbg=none
+highlight NonText ctermbg=none
 
 " ---
 " Mappings
