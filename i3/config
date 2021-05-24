@@ -43,25 +43,27 @@ gaps outer 0
 # Font
 font pango:SFNS Display 12
 
-# Window                Background         Border             Text
-client.focused          $dark-black        $light-black       $light-white        
-client.focused_inactive $dark-black        $light-black       $light-white        
-client.unfocused        $dark-black        $dark-black        $light-black        
-client.urgent           $dark-black        $light-red         $light-red         
+# Window                Background         Border             Text            Something!
+client.focused          $dark-black        $light-black       $light-white    $light-black
+client.focused_inactive $dark-black        $light-black       $light-white    $light-black
+client.unfocused        $dark-black        $dark-black        $light-black    $light-black
+client.urgent           $dark-black        $dark-white        $light-white    $light-black
 
-# bar
+# Bar
 bar {
-    font pango:System San Francisco Display 10
+    font pango:SFMono 11
   	status_command i3status
-    # tray_output none
+    position bottom
+    separator_symbol "   "
+    tray_output none
+
 	colors {
         statusline $light-white
 		background $dark-black
-        separator "#D8DEE9"
 		# Workspace        Border             Background         Text
 		focused_workspace  $dark-black        $dark-black        $light-white
 		inactive_workspace $dark-black        $dark-black        $light-black
-		urgent_workspace   $dark-black        $dark-black        $light-red
+		urgent_workspace   $dark-black        $dark-black        $light-white
 	}
 }
 
@@ -156,10 +158,10 @@ for_window [title="Volume Control"] floating enable, move absolute position cent
 
 # Resize
 mode "resize" {
-        bindsym h resize shrink width 10 px or 10 ppt
-        bindsym j resize shrink height 10 px or 10 ppt
-        bindsym k resize grow height 10 px or 10 ppt
-        bindsym l resize grow width 10 px or 10 ppt
+        bindsym h resize shrink width 10 px
+        bindsym j resize shrink height 10 px
+        bindsym k resize grow height 10 px
+        bindsym l resize grow width 10 px
 
         bindsym Escape mode "default"
 }
