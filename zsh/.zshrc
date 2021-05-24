@@ -10,6 +10,7 @@ RPROMPT='%B%(?..%?)%b'
 
 # Programs
 TERM='st'
+TERMINAL='st'
 EDITOR='nvim'
 VISUAL='nvim'
 READER='zathura --fork'
@@ -58,7 +59,10 @@ alias la='ls -lhA'
 alias mv='mv -v'
 alias cp='cp -v'
 alias rm='rm -v --preserve-root'
-alias e="${EDITOR}"
+alias e='${EDITOR}'
+alias ef='${EDITOR} $(fzf)'
+alias r='ranger'
+alias rf='ranger $(find -type d | fzf)'
 alias please='sudo $(fc -ln -1)'
 
 # System-specific
