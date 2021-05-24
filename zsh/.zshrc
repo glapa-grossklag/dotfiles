@@ -68,6 +68,7 @@ alias e='${EDITOR}'
 alias ef='${EDITOR} $(fzf)'
 alias r='ranger'
 alias rf='ranger $(find -type d | fzf)'
+alias cdf='cd "$(find -type d | fzf)"'
 alias please='sudo $(fc -ln -1)'
 
 # System-specific
