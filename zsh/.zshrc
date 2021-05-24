@@ -52,6 +52,11 @@ function condapls {
     eval "$(/home/miles/anaconda3/bin/conda shell.zsh hook)"
 }
 
+# Grab a PDF, give it to zathura.
+function zathcurl {
+    curl "$1" --output - | zathura --fork -
+}
+
 # General usability
 alias ls='ls --color=auto'
 alias ll='ls -lh'
