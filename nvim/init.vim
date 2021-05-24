@@ -6,14 +6,7 @@
 " Plugins
 " ---
 
-" Install vim-plug if not already installed
-if empty(glob('~/.vim/autoload/plug.vim'))
-    silent !curl -fLo ~/.vim/autoload/plug.vim --create-dirs
-        \ https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
-    autocmd VimEnter * PlugInstall --sync | source $MYVIMRC
-endif
-
-call plug#begin("~/.vim/plugged")
+call plug#begin("~/.config/nvim/vim-plug")
 " ./plugin/lightline.vim
 Plug 'itchyny/lightline.vim'
 
@@ -50,10 +43,7 @@ filetype plugin on
 
 " Use undodir
 set undofile
-set undodir=~/.vim/undodir
-
-" Store viminfo in .vim folder
-" set viminfo+=n~/.vim/viminfo
+set undodir=~/.config/nvim/undodir
 set viminfo+=n~/.config/nvim/viminfo
 
 " No swap file

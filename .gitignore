@@ -1,13 +1,6 @@
-# Ignore Vim folders and files
-/vim/autoload/
-/vim/plugged/
-/vim/undodir/
-/vim/viminfo
-/vim/.netrwhist
-
 # Ignore NeoVim folders and files
 /nvim/autoload/
-/nvim/plugged/
+/nvim/vim-plug/
 /nvim/undodir/
 /nvim/viminfo
 /nvim/.netrwhist
