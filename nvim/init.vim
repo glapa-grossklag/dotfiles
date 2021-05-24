@@ -14,10 +14,8 @@ if empty(glob('~/.vim/autoload/plug.vim'))
 endif
 
 call plug#begin("~/.vim/plugged")
-
 " ./plugin/lightline.vim
 Plug 'itchyny/lightline.vim'
-Plug 'shinchu/lightline-gruvbox.vim'
 
 " ./plugin/fzf.vim
 Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
@@ -109,7 +107,7 @@ let mapleader = " "
 inoremap jj <Esc>
 
 " Folds
-set foldmethod=syntax
+" set foldmethod=syntax
 set fcs=fold:\ ,vert:\| " Make folding prettier
 nnoremap <leader><leader> za
 vnoremap <leader><leader> zf
@@ -122,11 +120,13 @@ set splitbelow
 noremap <silent> <leader>; mzA;<Esc>`z
 
 " Terminal
-" noremap <silent> <leader>t :below terminal<CR><C-w>:resize 15%<CR>
-" noremap <silent> <leader>T :vertical below terminal<CR>
 noremap <silent> <leader>t :split +terminal<CR><C-w>:resize 15%<CR>
 noremap <silent> <leader>T :vsplit +terminal<CR>
 tnoremap <Esc> <C-\><C-n>
 
 " Use system clipboard
 set clipboard+=unnamedplus
+
+" Create new line without entering insert mode
+nnoremap <leader>o o<ESC>
+nnoremap <leader>O O<ESC>
