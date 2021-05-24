@@ -175,3 +175,4 @@ for_window [title="Discord"] move to workspace $ws6
 exec compton -b -f -D 6
 exec --no-startup-id ~/.fehbg # Set wallpaper
 exec redshift
+exec syncthing -no-browser
