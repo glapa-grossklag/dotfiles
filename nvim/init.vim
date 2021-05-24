@@ -21,6 +21,7 @@ Plug 'junegunn/goyo.vim'
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
 
 Plug 'plasticboy/vim-markdown'
+Plug 'vimwiki/vimwiki'
 
 Plug 'tpope/vim-commentary'
 Plug 'psliwka/vim-smoothie'
