@@ -52,6 +52,19 @@ function condapls {
     eval "$(/home/miles/anaconda3/bin/conda shell.zsh hook)"
 }
 
+# Grab a PDF, give it to zathura.
+function zathcurl {
+    curl "$1" --output - | zathura --fork -
+}
+
+# Open an editor and save it to the clipboard.
+function eclip {
+    FILE=$(mktemp)
+    $EDITOR "${FILE}"
+    xclip -selection c < "${FILE}"
+    \rm "${FILE}"
+}
+
 # General usability
 alias ls='ls --color=auto'
 alias ll='ls -lh'
