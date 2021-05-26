@@ -57,6 +57,14 @@ function zathcurl {
     curl "$1" --output - | zathura --fork -
 }
 
+# Open an editor and save it to the clipboard.
+function eclip {
+    FILE=$(mktemp)
+    $EDITOR "${FILE}"
+    xclip -selection c < "${FILE}"
+    \rm "${FILE}"
+}
+
 # General usability
 alias ls='ls --color=auto'
 alias ll='ls -lh'
