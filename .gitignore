@@ -4,6 +4,7 @@ nvim/.config/nvim/vim-plug/
 nvim/.config/nvim/undodir/
 nvim/.config/nvim/viminfo
 nvim/.config/nvim/.netrwhist
+nvim/.config/nvim/spell
 
 # Misc.
 tags
