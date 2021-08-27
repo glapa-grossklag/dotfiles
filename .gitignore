@@ -4,3 +4,6 @@
 /nvim/undodir/
 /nvim/viminfo
 /nvim/.netrwhist
+
+# Misc.
+tags

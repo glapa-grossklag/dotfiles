@@ -21,7 +21,7 @@ tidy:
 clean: tidy
 	rm -f $(BIN)
 
-debug: CFLAGS += -O0 -g
+debug: CFLAGS += -O0 -g -fsanitize=undefined -fsanitize=address
 debug: all
 
 format:

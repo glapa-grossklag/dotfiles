@@ -118,6 +118,9 @@ bindsym $mod+Shift+c reload
 # Restart i3 inplace
 bindsym $mod+Shift+r restart
 
+# leave
+bindsym $mod+Escape exec ~/docs/code/scripts/leave.sh
+
 # ---
 # Workspaces
 # ---
@@ -174,5 +177,9 @@ for_window [title="Discord"] move to workspace $ws6
 # Startup
 exec picom -b
 exec --no-startup-id ~/.fehbg # Set wallpaper
-exec redshift
-exec syncthing -no-browser
+exec redshift-gtk
+# exec syncthing -no-browser
+exec nm-applet
+exec xbanish
+exec_always pulseaudio -D
+exec_always --no-startup-id flashfocus
