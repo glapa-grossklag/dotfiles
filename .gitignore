@@ -1,9 +1,9 @@
 # Ignore NeoVim folders and files
-/nvim/autoload/
-/nvim/vim-plug/
-/nvim/undodir/
-/nvim/viminfo
-/nvim/.netrwhist
+nvim/.config/nvim/autoload/
+nvim/.config/nvim/vim-plug/
+nvim/.config/nvim/undodir/
+nvim/.config/nvim/viminfo
+nvim/.config/nvim/.netrwhist
 
 # Misc.
 tags

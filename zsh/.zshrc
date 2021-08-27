@@ -6,6 +6,9 @@
 source /usr/share/fzf/key-bindings.zsh
 source /usr/share/fzf/completion.zsh
 
+# z - https://github.com/rupa/z
+source /usr/local/bin/z.sh
+
 # Set left prompt to print working directory
 export PROMPT='%1~ $ '
 
@@ -21,6 +24,7 @@ export TERMINAL='st'
 export EDITOR='nvim'
 export VISUAL='nvim'
 export READER='zathura --fork'
+export GPG_TTY=$(tty)
 
 # Save history
 export HISTFILE="${ZDOTDIR:-$HOME}/.zsh_history"
@@ -89,7 +93,6 @@ function stopwatch {
     done
 }
 
-
 # General usability
 alias ls='ls --color=auto'
 alias ll='ls -lh'
@@ -109,9 +112,3 @@ alias streamvideo="mpv --volume=25 --ytdl-format='best'"
 # Suffix aliases
 alias -s pdf="${READER}"
 
-# z - https://github.com/rupa/z
-. /usr/local/bin/z.sh
-
-# Help gpg-agent
-GPG_TTY=`tty`
-export GPG_TTY
