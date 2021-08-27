@@ -2,22 +2,17 @@
 
 A collection of my dotfiles for
 
-* Zsh / Oh-My-Zsh
-* Vim
-* i3-radius
+* Zsh
+* NeoVim
+* i3
 * GNU Make
-
-## Screenshots
-
-![Screenshot of Vim](./vim.png)
 
 ## Installation
 
 ```sh
 git clone git@github.com:glapa-grossklag/dotfiles.git ~/.dotfiles
-chmod +x ./install.sh
-./install.sh
+bash ./install.sh
 ```
 
-**Note:** `install.sh` does not install Zsh nor i3-radius, please use your package
-manager of choice to do so.
+Note: `install.sh` does not install any of the programs, please use your
+package manager of choice to do so.

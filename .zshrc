@@ -2,29 +2,36 @@
 # .zshrc
 # ===
 
+# fzf
+source /usr/share/fzf/key-bindings.zsh
+source /usr/share/fzf/completion.zsh
+
 # Set left prompt to print working directory
-PROMPT='%1~ $ '
+export PROMPT='%1~ $ '
 
 # Set right prompt to print most recent exit code if non-zero
-RPROMPT='%B%(?..%?)%b'
+export RPROMPT='%B%(?..%?)%b'
+
+# Path
+export PATH="$HOME/docs/code/scripts:$PATH"
 
 # Programs
-TERM='st'
-TERMINAL='st'
-EDITOR='nvim'
-VISUAL='nvim'
-READER='zathura --fork'
+export TERM='st'
+export TERMINAL='st'
+export EDITOR='nvim'
+export VISUAL='nvim'
+export READER='zathura --fork'
 
 # Save history
-HISTFILE="${ZDOTDIR:-$HOME}/.zsh_history"
-HISTSIZE=10000
-SAVEHIST=10000
+export HISTFILE="${ZDOTDIR:-$HOME}/.zsh_history"
+export HISTSIZE=10000
+export SAVEHIST=10000
 setopt APPENDHISTORY
-setopt SHARE_HISTORY 
+setopt SHARE_HISTORY
 setopt INC_APPEND_HISTORY
 
 # Type only <directory> instead of cd <directory>
-setopt AUTO_CD 
+setopt AUTO_CD
 
 # Enable nice tab completion
 autoload -Uz compinit && compinit
@@ -65,6 +72,24 @@ function eclip {
     \rm "${FILE}"
 }
 
+# Countdown lasting $1 seconds
+function countdown {
+    date1=$((`date +%s` + $1));
+    while [ "$date1" -ge `date +%s` ]; do
+        echo -ne "\r$(date -u --date @$(($date1 - `date +%s`)) +%H:%M:%S)";
+        sleep 0.1
+    done
+}
+
+function stopwatch {
+    date1=`date +%s`;
+    while true; do
+        echo -ne "\r$(date -u --date @$((`date +%s` - $date1)) +%H:%M:%S)";
+        sleep 0.1
+    done
+}
+
+
 # General usability
 alias ls='ls --color=auto'
 alias ll='ls -lh'
@@ -73,20 +98,20 @@ alias mv='mv -v'
 alias cp='cp -v'
 alias rm='rm -v --preserve-root'
 alias e='${EDITOR}'
-alias ef='${EDITOR} $(fzf)'
 alias r='ranger'
-alias rf='ranger $(find -type d | fzf)'
-alias cdf='cd "$(find -type d | fzf)"'
 alias please='sudo $(fc -ln -1)'
 
 # System-specific
 alias zathura='zathura --fork'
 alias streamaudio="mpv --volume=25 --no-video --ytdl-format='bestaudio/best'"
 alias streamvideo="mpv --volume=25 --ytdl-format='best'"
-alias today="${EDITOR} ~/notes/daily/$(date -I).md"
 
 # Suffix aliases
 alias -s pdf="${READER}"
 
 # z - https://github.com/rupa/z
 . /usr/local/bin/z.sh
+
+# Help gpg-agent
+GPG_TTY=`tty`
+export GPG_TTY

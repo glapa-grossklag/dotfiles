@@ -34,10 +34,11 @@ set $light-white   "#ebdbb2"
 # ---
 
 # Window border
-for_window [class="^.*"] border pixel 3
+for_window [class="^.*"] border pixel 0
 
 # Gaps
-gaps inner 5
+smart_gaps on
+gaps inner 8
 gaps outer 0
 
 # Font
@@ -51,12 +52,11 @@ client.urgent           $dark-black        $dark-white        $light-white    $l
 
 # Bar
 bar {
-    font pango:SFMono 11
+    font pango:SFMono 12
   	status_command i3status
     position bottom
-    separator_symbol "   "
-    tray_output none
-
+    separator_symbol " "
+    # tray_output none
 	colors {
         statusline $light-white
 		background $dark-black
@@ -118,6 +118,9 @@ bindsym $mod+Shift+c reload
 # Restart i3 inplace
 bindsym $mod+Shift+r restart
 
+# leave
+bindsym $mod+Escape exec ~/docs/code/scripts/leave.sh
+
 # ---
 # Workspaces
 # ---
@@ -172,7 +175,11 @@ for_window [class="Spotify"] move to workspace $ws5
 for_window [title="Discord"] move to workspace $ws6
 
 # Startup
-exec compton -b -f -D 6
+exec picom -b
 exec --no-startup-id ~/.fehbg # Set wallpaper
-exec redshift
-exec syncthing -no-browser
+exec redshift-gtk
+# exec syncthing -no-browser
+exec nm-applet
+exec xbanish
+exec_always pulseaudio -D
+exec_always --no-startup-id flashfocus
