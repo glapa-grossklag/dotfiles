@@ -13,7 +13,7 @@ endif
 "                                  Plugins                                     "
 " ---------------------------------------------------------------------------- "
 
-" let data_dir = has('nvim') ? stdpath('data') . '/site' : '~/.vim'
+" Install vim-plug if it's missing.
 let data_dir = stdpath('data') . '/site'
 if empty(glob(data_dir . '/autoload/plug.vim'))
     silent execute '!curl -fLo '.data_dir.'/autoload/plug.vim --create-dirs  https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim'
@@ -27,6 +27,8 @@ Plug 'neovim/nvim-lspconfig'
 Plug 'simrat39/symbols-outline.nvim'
 Plug 'hrsh7th/nvim-cmp'
 Plug 'hrsh7th/cmp-nvim-lsp'
+Plug 'hrsh7th/cmp-buffer'
+Plug 'hrsh7th/cmp-path'
 
 " Cosmetic
 Plug 'itchyny/lightline.vim'
@@ -142,6 +144,8 @@ lua << EOF
 
         sources = {
             { name = 'nvim_lsp' },
+            { name = 'buffer' },
+            { name = 'path' }
         },
     }
 EOF
