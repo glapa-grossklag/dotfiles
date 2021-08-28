@@ -39,10 +39,6 @@ set conceallevel=0
 "                                  Cosmetic                                    "
 " ---------------------------------------------------------------------------- "
 
-if has('termguicolors')
-    set termguicolors
-endif
-
 set background=dark
 
 " https://github.com/morhetz/gruvbox
