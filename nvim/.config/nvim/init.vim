@@ -36,6 +36,7 @@ Plug 'itchyny/lightline.vim'
 Plug 'karb94/neoscroll.nvim'
 Plug 'lukas-reineke/indent-blankline.nvim'
 Plug 'morhetz/gruvbox'
+Plug 'Xuyuanp/scrollbar.nvim'
 
 " Git
 Plug 'tpope/vim-fugitive'
@@ -177,6 +178,19 @@ let g:lightline = { 'colorscheme': 'gruvbox' }
 let g:vim_markdown_new_list_item_indent = 0
 
 let g:GPGDefaultRecipients=["Miles Glapa-Grossklag"]
+
+let g:scrollbar_max_size = 2
+let g:scrollbar_min_size = 2
+let g:scrollbar_shape = {
+    \ 'head': '⌠',
+    \ 'tail': '⌡',
+    \ }
+augroup ScrollbarInit
+    autocmd!
+    autocmd CursorMoved,VimResized,QuitPre * silent! lua require('scrollbar').show()
+    autocmd WinEnter,FocusGained           * silent! lua require('scrollbar').show()
+    autocmd WinLeave,BufLeave,BufWinLeave,FocusLost            * silent! lua require('scrollbar').clear()
+augroup end
 
 " ---------------------------------------------------------------------------- "
 "                                   Mappings                                   "
