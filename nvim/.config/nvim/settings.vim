@@ -63,3 +63,9 @@ set background=dark
 colorscheme gruvbox
 
 let g:lightline = { 'colorscheme': 'gruvbox' }
+
+lua << EOF
+    require("indent_blankline").setup {
+      buftype_exclude = {"terminal", "nofile"}
+    }
+EOF
