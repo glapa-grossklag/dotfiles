@@ -14,7 +14,7 @@ The symlink process is handled by [GNU
 Stow](https://www.gnu.org/software/stow/).
 
 ```sh
-git clone git@github.com:glapa-grossklag/dotfiles.git ~/.dotfiles
+git clone git@github.com:glapa-grossklag/dotfiles.git
 bash ./install.sh
 ```
 

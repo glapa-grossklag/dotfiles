@@ -111,4 +111,3 @@ alias streamvideo="mpv --volume=25 --ytdl-format='best'"
 
 # Suffix aliases
 alias -s pdf="${READER}"
-
