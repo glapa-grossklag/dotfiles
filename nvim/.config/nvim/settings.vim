@@ -42,15 +42,11 @@ set signcolumn=yes
 set foldmethod=indent
 set fillchars=fold:\ ,vert:\|
 set spelllang=en_us
-
-" Plugin-Specific
-let g:vim_markdown_new_list_item_indent = 0
-let g:GPGDefaultRecipients=["Miles Glapa-Grossklag"]
+set nospell
 
 if has('termguicolors')
     set termguicolors
 endif
-
 
 " Colorscheme
 syntax on
@@ -62,7 +58,10 @@ let g:gruvbox_guisp_fallback='fg'
 set background=dark
 colorscheme gruvbox
 
+" Plugin-Specific
 let g:lightline = { 'colorscheme': 'gruvbox' }
+let g:vim_markdown_new_list_item_indent = 0
+let g:GPGDefaultRecipients=["Miles Glapa-Grossklag"]
 
 lua << EOF
     require("indent_blankline").setup {
