@@ -6,7 +6,7 @@ let s:art =<< EOF
 ▀▀    ▀▀   ▝▀▀▀▀▀     ▀▀▀▀       ▀▀     ▀▀  ▀▀  ▀▀  ▀▀
 EOF
 
-function! Startup()
+function! Startup(contents)
     " Don't run if:
     " - there were any command-line arguments;
     " - the buffer isn't empty;
@@ -30,7 +30,7 @@ function! Startup()
         \ noswapfile
         \ foldnestmax=0
 
-    for line in s:art
+    for line in a:contents
         call append('$', l:line)
     endfor
 
@@ -45,4 +45,5 @@ function! Startup()
     nnoremap <buffer><silent> i :enew <bar> startinsert<CR>
 endfunction
 
-autocmd VimEnter * call Startup()
+let s:contents = ["", "", ""] + s:art + split(system('date -I'), '\n')
+autocmd VimEnter * call Startup(s:contents)
