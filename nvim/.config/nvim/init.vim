@@ -16,6 +16,6 @@ endfunction
 call s:Source('plugins.vim')
 call s:Source('filetypes.vim')
 call s:Source('settings.vim')
-call s:Source('lsp.vim')
+call s:Source('lsp.lua')
 call s:Source('mappings.vim')
 call s:Source('startup.vim')
