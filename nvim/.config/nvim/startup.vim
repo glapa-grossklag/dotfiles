@@ -1,9 +1,8 @@
-let s:art =<< EOF
-██▃▅▇█▆▖  ▗▟████▙▖   ▄████▄   ██▄  ▄██  ██  ▗▟█▆▄▄▆█▙▖
-██▛▔ ▝██  ██▄▄▄▄██  ██▛▔▔▜██  ▝██  ██▘  ▄▄  ██▛▜██▛▜██
-██    ██  ██▀▀▀▀▀▘  ██▖  ▗██   ▜█▙▟█▛   ██  ██  ██  ██
-██    ██  ▜█▙▄▄▄▟▊  ▀██▙▟██▀   ▝████▘   ██  ██  ██  ██
-▀▀    ▀▀   ▝▀▀▀▀▀     ▀▀▀▀       ▀▀     ▀▀  ▀▀  ▀▀  ▀▀
+let s:penguins =<< trim EOF
+           (o_
+ (o_  (o_  //\
+ (/)_ (/)_ V_/_
+━━━━━━━━━━━━━━━━
 EOF
 
 function! Startup(contents)
@@ -37,6 +36,7 @@ function! Startup(contents)
     " Center everything.
     exec "setlocal textwidth=" . winwidth(0)
     g/.*/center
+    0
 
     " No modifications to this buffer
     setlocal nomodifiable nomodified
@@ -45,5 +45,5 @@ function! Startup(contents)
     nnoremap <buffer><silent> i :enew <bar> startinsert<CR>
 endfunction
 
-let s:contents = ["", "", ""] + s:art + split(system('date -I'), '\n')
+let s:contents = ["", "", ""] + s:penguins + split(system('fortune -s'), '\n')
 autocmd VimEnter * call Startup(s:contents)
