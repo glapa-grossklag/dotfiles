@@ -2,6 +2,7 @@ let s:penguins =<< trim EOF
            (o_
  (o_  (o_  //\
  (/)_ (/)_ V_/_
+━━━━━━━━━━━━━━━━
 EOF
 
 function! Startup(contents)
@@ -44,5 +45,7 @@ function! Startup(contents)
     nnoremap <buffer><silent> i :enew <bar> startinsert<CR>
 endfunction
 
-let s:contents = ["", "", ""] + s:penguins + split(system('fortune -s | ~/docs/code/box.py'), '\n')
+" TODO:
+" Move `box.py` to Vimscript
+let s:contents = ["", "", ""] + s:penguins + split(system('fortune -s'), '\n')
 autocmd VimEnter * call Startup(s:contents)
