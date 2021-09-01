@@ -8,3 +8,5 @@
 	gpgsign = true
 [alias]
 	wip = commit -am 'squash! work in progress'
+[rebase]
+    autosquash = true
