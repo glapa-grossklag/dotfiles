@@ -1,7 +1,15 @@
 -- Use Neovim's LSP and enable the following language servers:
 local nvim_lsp = require('lspconfig')
-nvim_lsp.pyright.setup{}
-nvim_lsp.clangd.setup{}
+
+require'lspinstall'.setup() -- important
+
+local servers = require'lspinstall'.installed_servers()
+for _, server in pairs(servers) do
+  require'lspconfig'[server].setup{}
+end
+
+-- nvim_lsp.pyright.setup{}
+-- nvim_lsp.clangd.setup{}
 
 -- Enable autocomplete.
 local cmp = require('cmp')
