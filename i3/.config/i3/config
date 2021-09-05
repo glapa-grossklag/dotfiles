@@ -172,7 +172,8 @@ bindsym $mod+r mode "resize"
 
 # Window Assignments
 for_window [class="Spotify"] move to workspace $ws5
-for_window [title="Discord"] move to workspace $ws6
+for_window [class="Discord"] move to workspace $ws5
+for_window [class="lightcord"] move to workspace $ws5
 
 # Startup
 exec picom -b
