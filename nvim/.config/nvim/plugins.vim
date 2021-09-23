@@ -15,36 +15,44 @@ Plug 'hrsh7th/nvim-cmp'
 Plug 'hrsh7th/cmp-nvim-lsp'
 Plug 'hrsh7th/cmp-buffer'
 Plug 'hrsh7th/cmp-path'
-Plug 'cohama/lexima.vim'
+Plug 'kabouzeid/nvim-lspinstall'
 
 " Cosmetic
 Plug 'itchyny/lightline.vim'
 Plug 'karb94/neoscroll.nvim'
 Plug 'lukas-reineke/indent-blankline.nvim'
 Plug 'morhetz/gruvbox'
+Plug 'folke/zen-mode.nvim'
 
 " Git
 Plug 'tpope/vim-fugitive'
 
 " Utilities
-Plug 'glapa-grossklag/vim-md-md'
 Plug 'godlygeek/tabular'
 Plug 'jamessan/vim-gnupg'
-Plug 'ludovicchabant/vim-gutentags'
-Plug 'matze/vim-move'
-Plug 'plasticboy/vim-markdown'
 Plug 'tpope/vim-commentary'
 Plug 'tpope/vim-eunuch'
+Plug 'dstein64/vim-startuptime'
+Plug 'andymass/vim-matchup'
+Plug 'sbdchd/neoformat'
+Plug 'glapa-grossklag/vim-plate'
+
+" Markdown
+Plug 'dkarter/bullets.vim'
+Plug 'glapa-grossklag/jrnlr'
+Plug 'glapa-grossklag/vim-md-md'
+Plug 'plasticboy/vim-markdown'
 
 " Telescope
 Plug 'nvim-telescope/telescope.nvim'
 
-" Generic
+" Glue
 Plug 'nvim-lua/plenary.nvim'
 Plug 'tpope/vim-repeat'
 
 call plug#end()
 
 lua << EOF
-    require('neoscroll').setup()
+    require("neoscroll").setup()
+    require("zen-mode").setup()
 EOF

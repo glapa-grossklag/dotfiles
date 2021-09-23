@@ -18,6 +18,9 @@ set textwidth=80
 set nowrap
 set linebreak
 
+" Open a local `.vimrc` if one is found.
+set exrc
+
 " Searching
 set incsearch
 set nohlsearch
@@ -59,9 +62,21 @@ set background=dark
 colorscheme gruvbox
 
 " Plugin-Specific
-let g:lightline = { 'colorscheme': 'gruvbox' }
+let g:lightline                         = { 'colorscheme': 'gruvbox' }
+
 let g:vim_markdown_new_list_item_indent = 0
-let g:GPGDefaultRecipients=["Miles Glapa-Grossklag"]
+let g:vim_markdown_folding_disabled = 1
+
+let g:GPGDefaultRecipients              = ["Miles Glapa-Grossklag"]
+
+let g:jrnlr_dir                         = '~/notes/daily'
+let g:jrnlr_extension                   = '.md'
+let g:jrnlr_template                    = '~/notes/daily/template.md'
+
+" let g:wiki_root = '~/notes'
+" let g:wiki_filetypes = ['md']
+" let g:wiki_link_extension = '.md'
+let g:waikiki_roots = ['~/notes/']
 
 lua << EOF
     require("indent_blankline").setup {

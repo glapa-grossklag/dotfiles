@@ -1,10 +1,7 @@
+call Source('lib.vim')
+
 " *
-function s:RemoveTrailingWhitespace()
-    let l:pos = getpos('.')
-    %s/\s\+$//e
-    call setpos('.', l:pos)
-endfunction
-autocmd BufWritePre * call <SID>RemoveTrailingWhitespace()
+autocmd BufWritePre * call RemoveTrailingWhitespace()
 
 " C
 autocmd FileType c setlocal commentstring=//\ %s
