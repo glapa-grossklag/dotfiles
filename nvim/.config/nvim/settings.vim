@@ -66,17 +66,13 @@ let g:lightline                         = { 'colorscheme': 'gruvbox' }
 
 let g:vim_markdown_new_list_item_indent = 0
 let g:vim_markdown_folding_disabled = 1
+let g:vim_markdown_conceal_code_blocks = 0
 
 let g:GPGDefaultRecipients              = ["Miles Glapa-Grossklag"]
 
 let g:jrnlr_dir                         = '~/notes/daily'
 let g:jrnlr_extension                   = '.md'
 let g:jrnlr_template                    = '~/notes/daily/template.md'
-
-" let g:wiki_root = '~/notes'
-" let g:wiki_filetypes = ['md']
-" let g:wiki_link_extension = '.md'
-let g:waikiki_roots = ['~/notes/']
 
 lua << EOF
     require("indent_blankline").setup {

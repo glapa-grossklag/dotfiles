@@ -19,7 +19,8 @@ call Source('filetypes.vim')
 call Source('settings.vim')
 call Source('lsp.lua')
 call Source('mappings.vim')
-" call s:Source('startup.vim')
+call Source('abbreviations.vim')
+call Source('startup.vim')
 
 " If we open without any file in mind and there's a session available, let's load it.
 if !(argc() || line2byte('$') != -1 || v:progname !~? '^[-gmnq]\=vim\=x\=\%[\.exe]$' || &insertmode)

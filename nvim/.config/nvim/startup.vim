@@ -2,8 +2,8 @@ let s:penguins =<< EOF
 
 
 
-           (o_
- (o_  (o_  //\
+           (o_ 
+ (o_  (o_  //\ 
  (/)_ (/)_ V_/_
 EOF
 

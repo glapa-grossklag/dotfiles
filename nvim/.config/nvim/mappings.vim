@@ -7,14 +7,6 @@ let mapleader = " "
 inoremap jj <Esc>
 nnoremap <leader><leader> zA
 
-" Keep visual mode after indent
-vnoremap > >gv
-vnoremap < <gv
-
-nnoremap <Enter> gf
-nnoremap <Tab>   <C-^>
-
-
 " -------------------------------------------------------------------------------
 " Major
 " -------------------------------------------------------------------------------
@@ -60,8 +52,6 @@ nnoremap <leader>ff <cmd>Neoformat<cr>
 
 " Misc.
 tnoremap <Esc> <C-\><C-n>
-inoremap <silent><M-t> <C-r><C-o>= strftime('%H:%M')<cr>
 
-" autocmd FileType markdown map <buffer> <Enter> <Plug>MDCheckboxToggle
 autocmd FileType markdown map <buffer> <Tab>   <Plug>MDNextLink
 autocmd FileType markdown map <buffer> <S-Tab> <Plug>MDPrevLink
