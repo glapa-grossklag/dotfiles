@@ -73,9 +73,3 @@ let g:GPGDefaultRecipients              = ["Miles Glapa-Grossklag"]
 let g:jrnlr_dir                         = '~/notes/daily'
 let g:jrnlr_extension                   = '.md'
 let g:jrnlr_template                    = '~/notes/daily/template.md'
-
-lua << EOF
-    require("indent_blankline").setup {
-      buftype_exclude = {"terminal", "nofile"}
-    }
-EOF

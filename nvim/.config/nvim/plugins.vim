@@ -20,7 +20,6 @@ Plug 'kabouzeid/nvim-lspinstall'
 " Cosmetic
 Plug 'itchyny/lightline.vim'
 Plug 'karb94/neoscroll.nvim'
-Plug 'lukas-reineke/indent-blankline.nvim'
 Plug 'morhetz/gruvbox'
 Plug 'folke/zen-mode.nvim'
 
