@@ -42,8 +42,17 @@ set conceallevel=0
 set noshowmode
 set laststatus=2
 set signcolumn=yes
+
+" Folding
 set foldmethod=indent
 set fillchars=fold:\ ,vert:\|
+set foldtext=MyFoldText()
+function MyFoldText()
+    let indent = repeat(repeat(' ', &shiftwidth), v:foldlevel)
+    return indent . '...'
+endfunction
+
+" Spelling
 set spelllang=en_us
 set nospell
 
