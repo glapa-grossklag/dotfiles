@@ -4,25 +4,25 @@ BIN    = a.out
 
 CC     = clang
 CFLAGS = -Wall -Wextra -Wpedantic -O2
+LFLAGS =
 
-.PHONY: all tidy clean debug format
-
+.PHONY: all
 all: $(BIN)
 
 $(BIN): $(OBJ)
-	$(CC) $(CFLAGS) -o $@ $^
+	$(CC) $(CFLAGS) -o $@ $^ $(LFLAGS)
 
-%.o: %.c
-	$(CC) $(CFLAGS) -c $<
-
+.PHONY: tidy
 tidy:
 	rm -f $(OBJ)
 
+.PHONY: clean
 clean: tidy
 	rm -f $(BIN)
 
-debug: CFLAGS += -O0 -g -fsanitize=undefined -fsanitize=address
-debug: all
-
+.PHONY: format
 format:
 	find . -name "*.[ch]" | xargs clang-format -i -style=file
+
+%.o: %.c
+	$(CC) $(CFLAGS) -c $<
