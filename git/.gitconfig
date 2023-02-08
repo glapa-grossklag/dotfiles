@@ -1,12 +1,5 @@
 [user]
 	name = Miles Glapa-Grossklag
 	email = miles@glapa-grossklag.com
-	signingkey = F078353DF309CADA67666F053E713D6855767E49
 [init]
 	defaultBranch = main
-[commit]
-	gpgsign = true
-[alias]
-	wip = commit -am 'squash! work in progress'
-[rebase]
-    autosquash = true

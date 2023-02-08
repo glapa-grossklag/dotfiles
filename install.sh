@@ -9,4 +9,7 @@ ln --force --symbolic "${HERE}/nvim/init.vim" "${HOME}/.config/nvim/init.vim"
 # zsh
 ln --force --symbolic "${HERE}/zsh/.zshrc" "${HOME}/.zshrc"
 
-stow --target="${HOME}" i3 vim zathura git
+# git
+ln --force --symbolic "${HERE}/git/.gitconfig" "${HOME}/.gitconfig"
+
+stow --target="${HOME}" i3 vim zathura
