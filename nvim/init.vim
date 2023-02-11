@@ -93,6 +93,15 @@ lua << EOF
 	}
 EOF
 
+" Use full-line comments in C
+autocmd FileType c setlocal commentstring=//\ %s
+
+" Makefiles must use tabs, not spaces
+autocmd FileType make setlocal noexpandtab
+
+" Enable spell-check in Markdown files
+autocmd FileType markdown setlocal spell
+
 " }}}
 
 " Mappings {{{
