@@ -71,12 +71,25 @@ set wrap
 colorscheme kanagawa
 
 lua << EOF
+	local function get_word_count()
+		return tostring(vim.fn.wordcount().words) .. ' words'
+	end
+
+
 	require('lualine').setup {
 		options = {
 			icons_enabled = false,
 			component_separators = '|',
-			section_separators = { left = '', right = '' },
-		}
+			section_separators = ''
+		},
+		sections = {
+			lualine_a = {'mode'},
+			lualine_b = {'branch', 'diff', 'diagnostics'},
+			lualine_c = {'filename'},
+			lualine_x = {'filetype', get_word_count, 'filesize'},
+			lualine_y = {'progress'},
+			lualine_z = {'location'}
+		},
 	}
 EOF
 
