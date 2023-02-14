@@ -27,10 +27,12 @@ Plug 'tpope/vim-fugitive'
 Plug 'tpope/vim-commentary'
 Plug 'tpope/vim-eunuch'
 Plug 'tpope/vim-unimpaired'
+Plug 'echasnovski/mini.completion'
 
 call plug#end()
 
 lua require("indent_blankline").setup()
+lua require("mini.completion").setup()
 
 " }}}
 
