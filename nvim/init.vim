@@ -115,6 +115,7 @@ nnoremap <silent> <leader>p <cmd>Files<cr>
 nnoremap <silent> <leader>f <cmd>Rg<cr>
 nnoremap <silent> <leader>g <cmd>Git<cr>
 nnoremap <silent> <leader>n <cmd>tabnew<cr>
+nnoremap <leader>r :%s/<c-r><c-w>/<c-r><c-w>/gc<left><left><left>
 
 noremap <silent> <leader>t :split +terminal<CR><C-w>:resize 15%<CR>
 noremap <silent> <leader>T :vsplit +terminal<CR>
